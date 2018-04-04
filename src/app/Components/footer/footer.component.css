@@ -16,14 +16,19 @@ footer {
 
 .wrapper {
     padding-top: 100px;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
     grid-auto-rows: minmax(100px, auto);
+    grid-gap: 5px;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
 }
 
 #logoContainer {
+    -ms-grid-column: 1;
     grid-column: 1;
+    -ms-grid-row: 1;
     grid-row: 1;
 }
 
@@ -35,7 +40,9 @@ footer {
 #nav {
     top: 100px;
     grid-column: 2;
+    -ms-grid-column: 2;
     grid-row: 1;
+    -ms-grid-row: 1;
 }
 
 li {
@@ -46,11 +53,15 @@ li {
 
 #login {
     grid-column: 3;
+    -ms-grid-column: 3;
     grid-row: 1;
+    -ms-grid-row: 1;
 }
 
 #social {
+    -ms-grid-column: 4;
     grid-column: 4;
+    -ms-grid-row: 1;
     grid-row: 1;
 }
 
