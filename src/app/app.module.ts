@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HeaderBeforeLoginComponent } from './Components/header-before-login/header-before-login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderBeforeLoginComponent
   ],
   imports: [
     BrowserModule
