@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HeaderAfterLoginComponent } from './Components/header-after-login/header-after-login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderAfterLoginComponent
   ],
   imports: [
     BrowserModule
