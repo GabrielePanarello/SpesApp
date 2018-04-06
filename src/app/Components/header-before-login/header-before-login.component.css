@@ -65,32 +65,13 @@ button:hover{
     background-color: #58b0e0;
 }
 
-@media only screen and (max-width: 768px) {
-    .menu {
-        margin-left: 0px;
-    }
-    .menu-item {
-        padding: 10px;
-    }
-}
-
-@media only screen and (width: 1024px) {
-    .menu {
-        margin-left: 150px;
-    }
-    .menu-item {
-        padding: 10px;
-    }
-
-    
-}
 
 /* The Modal (background) */
 .modal {
     /*display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -185,10 +166,20 @@ h2{
     color: white;
     width:50%;
     margin-top: 15px;
+    padding-bottom: 50px;
 }
 .h6-footer{
     color: #4F6479;
     text-align: center;
+}
+.h3-footer{
+    color: #58b0e0;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+.h3-footer:hover{
+    color: #1a85be;
 }
 .img-login{
     position: absolute;
@@ -210,4 +201,24 @@ h2{
     padding-bottom: 0px;
     margin-left: 15%;
     margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        margin-left: 0px;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+}
+
+@media only screen and (width: 1024px) {
+    .menu {
+        margin-left: 150px;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+
+    
 }
