@@ -11,12 +11,9 @@ export class HeaderBeforeLoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.close();
+    //this.close();
   }
   
-
-  btn= document.getElementById("myBtn");
-  span=document.getElementsByClassName("close")[0];
 
   
   open(){
