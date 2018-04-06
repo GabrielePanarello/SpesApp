@@ -16,8 +16,14 @@
             <li class="menu-item">
                 <a href="" class="link-item">Registrati</a>
             </li>
-            <li class="menu-item">
-                <a href="" class="link-item">Accedi</a>
+            <li id="menu-item-login">
+                <button href="" class="link-item" (click)="open()" >Accedi</button>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span (click)="close()"class="close">&times;</span>
+                            <p>Some text in the Modal..</p>
+                        </div>
+                    </div>
             </li>
         </ul>
     </div>
