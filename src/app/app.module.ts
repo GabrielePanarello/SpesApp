@@ -7,6 +7,7 @@ import { HeaderAfterLoginComponent } from './Components/header-after-login/heade
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderBeforeLoginComponent } from './Components/header-before-login/header-before-login.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ListDetailComponent } from './Components/list-detail/list-detail.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     HeaderBeforeLoginComponent,
     FooterComponent,
+    ListDetailComponent,
   ],
   imports: [
     BrowserModule
