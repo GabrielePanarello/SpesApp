@@ -1,9 +1,9 @@
 .noLists {
-    display: none;
+    display: block;
 }
 
 .hasLists {
-    display: block;
+    display: none;
 }
 
 .subHeader {
@@ -22,10 +22,13 @@
 .listContainer {
     width: 100%;
     height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .welcomeContainer {
-    position: relative;
+    padding-bottom: 120px;
 }
 
 #welcome {
@@ -53,13 +56,14 @@
 
 .addDiv {
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     right: 10px;
 }
 
 #arrow {
     position: absolute;
     float: right;
+    bottom: 150px;
     right: 48px;
 }
 
