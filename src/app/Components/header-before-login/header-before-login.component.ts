@@ -16,11 +16,19 @@ export class HeaderBeforeLoginComponent implements OnInit {
   
 
   
-  open(){
-    document.getElementById("myModal").style.display="block";
+  openRegister(){
+    document.getElementById("myModalRegister").style.display="block";
   }
-  close(){
-    document.getElementById("myModal").style.display="none";
+  closeRegister(){
+    document.getElementById("myModalRegister").style.display="none";
+    document.getElementById("menu-item-login").style.padding="0px";
+  }
+
+  openLogin(){
+    document.getElementById("myModalLogin").style.display="block";
+  }
+  closeLogin(){
+    document.getElementById("myModalLogin").style.display="none";
     document.getElementById("menu-item-login").style.padding="0px";
   }
 

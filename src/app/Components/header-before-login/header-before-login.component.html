@@ -14,15 +14,50 @@
                 <a href="#contatti" class="link-item">Contatti</a>
             </li>
             <li class="menu-item">
-                <a href="" class="link-item">Registrati</a>
-            </li>
-            <li id="menu-item-login">
-                <button href="" id="myBtn" class="link-item" (click)="open()">Accedi</button>
-                <div id="myModal" class="modal">
+                <button href="" id="myBtn" class="link-item" (click)="openRegister()">Registrati</button>
+                <div id="myModalRegister" class="modal">
                     <div class="modal-content">
                         <div class="modal-right">
                             <img src="assets/BG_login.jpg" class="img-login">
-                            <span (click)="close()" class="close">&times;</span>
+                            <span (click)="closeRegister()" class="close">&times;</span>
+                        </div>
+                        <div class="modal-header">
+                            <img src="assets/faispesa_txt.png" class="login-title">
+                            <h2> Crea un Account </h2>
+                        </div>
+                        <div class="modal-body">
+                            <form class="w3-container">
+                                <label class="label">Nome e cognome</label>
+                                <br>
+                                <input type="text" class="w3-input">
+                                <br>
+                                <label class="label">E-mail</label>
+                                <br>
+                                <input type="text" class="w3-input">
+                                <br>
+                                <label class="label">Password</label>
+                                <br>
+                                <input type="password" class="w3-input">
+                                <button class="w3-btn">
+                                    <h4>Accedi</h4>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <h6 class="h6-footer">Hai già un account</h6>
+                            <h3 class="h3-footer" (click)="openLogin()">Accedi ora</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+            <li id="menu-item-login">
+                <button href="" id="myBtn" class="link-item" (click)="openLogin()">Accedi</button>
+                <div id="myModalLogin" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-right">
+                            <img src="assets/BG_login.jpg" class="img-login">
+                            <span (click)="closeLogin()" class="close">&times;</span>
                         </div>
                         <div class="modal-header">
                             <img src="assets/faispesa_txt.png" class="login-title">
@@ -37,12 +72,14 @@
                                 <label class="label">Password</label>
                                 <br>
                                 <input type="password" class="w3-input">
-                                <button class="w3-btn"><h4>Accedi</h4></button>
+                                <button class="w3-btn">
+                                    <h4>Accedi</h4>
+                                </button>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <h6 class="h6-footer">oppure</h6>
-                            <h3 class="h3-footer" (click)="close()">Crea un Account</h3>
+                            <h3 class="h3-footer" (click)="openRegister()">Crea un Account</h3>
                         </div>
 
                     </div>
