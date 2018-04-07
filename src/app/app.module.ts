@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { HeaderAfterLoginComponent } from './Components/header-after-login/header-after-login.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -11,14 +9,14 @@ import { HeaderBeforeLoginComponent } from './Components/header-before-login/hea
 import { UrlMockUtilsService } from './services/url-mock-utils.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderAfterLoginComponent,
+    HeaderBeforeLoginComponent,
     HomeComponent,
-    FooterComponent,
-    HomeListComponent,
-    HeaderBeforeLoginComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule
