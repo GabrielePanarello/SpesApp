@@ -1,3 +1,7 @@
+.homeDiv {
+    z-index: -1;
+}
+
 #scarica {
     position: relative;
     width: 100%;
@@ -216,4 +220,8 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
+}
+
+::placeholder {
+    z-index: -1;
 }

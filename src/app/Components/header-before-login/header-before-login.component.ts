@@ -12,23 +12,32 @@ export class HeaderBeforeLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  
-  openRegister(){
-    document.getElementById("myModalRegister").style.display="block";
+
+
+  openRegister() {
+    document.getElementById("myModalRegister").style.display = "block";
+    document.getElementById("mail").style.color = "transparent";
+    document.getElementById("messaggio").style.color = "transparent";
   }
-  closeRegister(){
-    document.getElementById("myModalRegister").style.display="none";
-    document.getElementById("menu-item").style.padding="0px";
+  closeRegister() {
+    document.getElementById("myModalRegister").style.display = "none";
+    //document.getElementById("menu-item").style.padding="0px";
+    document.getElementById("mail").style.color = "gray";
+    document.getElementById("messaggio").style.color = "gray";
   }
 
-  openLogin(){
-    document.getElementById("myModalLogin").style.display="block";
-  }
-  closeLogin(){
-    document.getElementById("myModalLogin").style.display="none";
-    document.getElementById("menu-item").style.padding="0px";
-  }
+  openLogin() {
+    document.getElementById("myModalLogin").style.display = "block";
+    document.getElementById("mail").style.color = "transparent";
+    document.getElementById("messaggio").style.color = "transparent";
 
   }
+  closeLogin() {
+    document.getElementById("myModalLogin").style.display = "none";
+    document.getElementById("mail").style.color = "gray";
+    document.getElementById("messaggio").style.color = "gray";
+
+  }
+
+}
 
