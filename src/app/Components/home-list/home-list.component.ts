@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../Services/http.service';
+import { User } from '../../Beans/user';
 
 @Component({
   selector: 'app-home-list',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeListComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor(private httpService: HttpService) { }
+
+ 
 
 }
