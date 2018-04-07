@@ -11,10 +11,8 @@ export class HeaderBeforeLoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    //this.close();
   }
   
-
   
   openRegister(){
     document.getElementById("myModalRegister").style.display="block";
