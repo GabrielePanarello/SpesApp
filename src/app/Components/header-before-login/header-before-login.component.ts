@@ -19,7 +19,7 @@ export class HeaderBeforeLoginComponent implements OnInit {
   }
   closeRegister(){
     document.getElementById("myModalRegister").style.display="none";
-    document.getElementById("menu-item-login").style.padding="0px";
+    document.getElementById("menu-item").style.padding="0px";
   }
 
   openLogin(){
@@ -27,7 +27,7 @@ export class HeaderBeforeLoginComponent implements OnInit {
   }
   closeLogin(){
     document.getElementById("myModalLogin").style.display="none";
-    document.getElementById("menu-item-login").style.padding="0px";
+    document.getElementById("menu-item").style.padding="0px";
   }
 
   }
