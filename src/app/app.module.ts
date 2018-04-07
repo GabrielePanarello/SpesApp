@@ -8,6 +8,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeListComponent } from './components/home-list/home-list.component';
 import { HeaderBeforeLoginComponent } from './Components/header-before-login/header-before-login.component';
+import { UrlMockUtilsService } from './services/url-mock-utils.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { HeaderBeforeLoginComponent } from './Components/header-before-login/hea
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [UrlMockUtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
