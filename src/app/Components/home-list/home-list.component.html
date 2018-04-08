@@ -21,11 +21,11 @@
 
 <div class="hasLists">
     <div class="subHeader">
-        <p id="titleHeader">Nessuna lista presente</p>
+        <p id="titleHeader">{{lists.length}} Liste</p>
     </div>
     <div class="listPopulatedContainer">
         <div class="listWrapper">
-            <div class="list1">
+            <!-- <div class="list1">
                 <div id="headerList">
                     <p id="titleHeaderList">Macellaio</p>
                 </div>
@@ -37,7 +37,23 @@
                     <img id="send" src="../../../assets/homeList-assets/send.png" alt="">
                     <img id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
                 </div>
-            </div>
+            </div> -->
+
+            <ng-container *ngFor="let list of lists">
+                <div class="list1">
+                    <div id="headerList">
+                        <p id="titleHeaderList">{{list.name}}</p>
+                    </div>
+                    <div id="footerTitleList">
+                        <p id="titleFooter">{{list.name}}</p>
+                    </div>
+                    <div id="footerList">
+                        <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="">
+                        <img id="send" src="../../../assets/homeList-assets/send.png" alt="">
+                        <img id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
+                    </div>
+                </div>
+            </ng-container>
 
             <div class="list2">
                 <div id="headerList">
@@ -60,3 +76,5 @@
         </div>
     </div>
 </div>
+
+<app-footer></app-footer>

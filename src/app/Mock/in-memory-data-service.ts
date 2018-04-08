@@ -8,14 +8,11 @@ export class InMemoryDataService implements InMemoryDbService {
 
         const lists = [
             {
-                list: [
-                    {
-                        id: 1, name: "Spesa", img: "-", product: [
-                            { id: 1, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
-                        ]
-                    }
+                id: 1, name: "Spesa", img: "-", product: [
+                    { id: 1, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
                 ]
             }
+
         ]
 
         return { users, lists };

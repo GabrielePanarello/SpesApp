@@ -4,6 +4,7 @@ import { User } from '../beans/user';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { List } from '../beans/list';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +28,13 @@ export class HttpService {
     return this.http.post<User>(this.url+"users", user, httpOptions)
     .pipe(
       tap((user: User) => console.log("User Added - id=${user.id}"))
+    );
+  }
+
+  getList(): Observable<List[]>{
+    return this.http.get<List[]>(this.url+"lists",httpOptions)
+    .pipe(
+      catchError(this.handleError('getList',[]))
     );
   }
 

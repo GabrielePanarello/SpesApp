@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service';
-import { User } from '../../beans/user';
+import { List } from '../../beans/list';
 
 @Component({
   selector: 'app-home-list',
@@ -9,21 +9,20 @@ import { User } from '../../beans/user';
 })
 export class HomeListComponent implements OnInit {
 
-  users: User[];
+  lists: List[];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(){
-    this.getUsers();
+    this.getLists();
   }
 
-  getUsers(){
-    this.httpService.getUsers()
+  getLists(){
+    this.httpService.getList()
     .subscribe(
-      response => console.log(response)
+      listResponse => this.lists = listResponse
     );
   }
-
  
 
 }
