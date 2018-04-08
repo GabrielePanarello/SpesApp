@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IButton } from 'selenium-webdriver';
 import { HttpService } from '../../services/http.service';
 import { User } from '../../beans/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-before-login',
@@ -13,8 +14,9 @@ export class HeaderBeforeLoginComponent implements OnInit {
   users: User[];
   username: string;
   password: string;
+  newUser: User = new User();
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.getUsers();
@@ -24,10 +26,15 @@ export class HeaderBeforeLoginComponent implements OnInit {
     for(let user of this.users){
       if(user.name == this.username && user.password == this.password){
         console.log("Utente Trovato");
+        this.router.navigate(["user/"+user.id]);
       }else{
         console.log("Utente Non Trovato");
       }
     }
+  }
+
+  doSignUp(user: User){
+    this.httpService.register(user).subscribe();
   }
 
   getUsers(){

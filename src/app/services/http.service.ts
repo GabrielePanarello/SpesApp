@@ -12,14 +12,21 @@ const httpOptions = {
 @Injectable()
 export class HttpService {
 
-  private usersUrl = 'api/users';  // URL to web api
+  private url = 'api/';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
-  getUsers (): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl, httpOptions)
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.url+"users", httpOptions)
     .pipe(
       catchError(this.handleError('getUsers',[]))
+    );
+  }
+
+  register(user: User): Observable<User> {
+    return this.http.post<User>(this.url+"users", user, httpOptions)
+    .pipe(
+      tap((user: User) => console.log("User Added - id=${user.id}"))
     );
   }
 
