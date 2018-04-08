@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mock/in-memory-data-service';
 import { HttpService } from './services/http.service';
+import { MainRouterModule } from './routing/mainRouterModule';
 
 
 
@@ -29,7 +30,8 @@ import { HttpService } from './services/http.service';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    MainRouterModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
