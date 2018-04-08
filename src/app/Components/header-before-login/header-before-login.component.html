@@ -70,12 +70,12 @@
                             <form class="w3-container">
                                 <label class="label">E-mail</label>
                                 <br>
-                                <input type="text" class="w3-input">
+                                <input [(ngModel)]="username" name="username" type="text" class="w3-input">
                                 <br>
                                 <label class="label">Password</label>
                                 <br>
-                                <input type="password" class="w3-input">
-                                <button class="w3-btn">
+                                <input [(ngModel)]="password" name="password" type="password" class="w3-input">
+                                <button (click)="doLogin()" class="w3-btn">
                                     <h4>Accedi</h4>
                                 </button>
                             </form>

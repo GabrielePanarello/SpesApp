@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IButton } from 'selenium-webdriver';
+import { HttpService } from '../../services/http.service';
+import { User } from '../../beans/user';
 
 @Component({
   selector: 'app-header-before-login',
@@ -8,11 +10,32 @@ import { IButton } from 'selenium-webdriver';
 })
 export class HeaderBeforeLoginComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+  username: string;
+  password: string;
+
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
 
+  doLogin(){
+    for(let user of this.users){
+      if(user.name == this.username && user.password == this.password){
+        console.log("Utente Trovato");
+      }else{
+        console.log("Utente Non Trovato");
+      }
+    }
+  }
+
+  getUsers(){
+    this.httpService.getUsers()
+    .subscribe(
+      usersResponse => this.users = usersResponse 
+    );
+  }
 
   openRegister() {
     document.getElementById("myModalRegister").style.display = "block";
