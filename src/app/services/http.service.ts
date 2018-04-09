@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../beans/user';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map, filter } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { List } from '../beans/list';
@@ -35,6 +35,13 @@ export class HttpService {
     return this.http.get<List[]>(this.url+"lists",httpOptions)
     .pipe(
       catchError(this.handleError('getList',[]))
+    );
+  }
+
+  getListById(userId: number): Observable<List[]>{
+    return this.http.get<List[]>(this.url+"lists",httpOptions)
+    .pipe(
+      map(lists => lists.filter(list => list.userId == userId))
     );
   }
 

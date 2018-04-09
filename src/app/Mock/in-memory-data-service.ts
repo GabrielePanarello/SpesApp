@@ -10,9 +10,13 @@ export class InMemoryDataService implements InMemoryDbService {
             {
                 id: 1, name: "Spesa", img: "-", product: [
                     { id: 1, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
-                ]
+                ], userId: 1,
+            },
+            {
+                id: 2, name: "Pasquetta", img: "-", product: [
+                    { id: 1, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
+                ], userId: 2
             }
-
         ]
 
         return { users, lists };

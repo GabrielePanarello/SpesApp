@@ -9,16 +9,16 @@ import { List } from '../../beans/list';
 })
 export class HomeListComponent implements OnInit {
 
-  lists: List[];
+  lists: List[] = [];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(){
-    this.getLists();
+    this.getUserLists();
   }
 
-  getLists(){
-    this.httpService.getList()
+  getUserLists(){
+    this.httpService.getListById(2)
     .subscribe(
       listResponse => this.lists = listResponse
     );

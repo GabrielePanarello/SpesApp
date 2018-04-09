@@ -4,5 +4,6 @@ export class List{
     id: number;
     name: string;
     img: string;
-    product: Product;
+    product: Product[];
+    userId: number;
 }
