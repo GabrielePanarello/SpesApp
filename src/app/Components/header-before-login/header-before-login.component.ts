@@ -3,6 +3,7 @@ import { IButton } from 'selenium-webdriver';
 import { HttpService } from '../../services/http.service';
 import { User } from '../../beans/user';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-header-before-login',
@@ -16,7 +17,7 @@ export class HeaderBeforeLoginComponent implements OnInit {
   password: string;
   newUser: User = new User();
 
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
     this.getUsers();
@@ -34,11 +35,11 @@ export class HeaderBeforeLoginComponent implements OnInit {
   }
 
   doSignUp(user: User){
-    this.httpService.register(user).subscribe();
+    this.loginService.register(user).subscribe();
   }
 
   getUsers(){
-    this.httpService.getUsers()
+    this.loginService.getUsers()
     .subscribe(
       usersResponse => this.users = usersResponse 
     );

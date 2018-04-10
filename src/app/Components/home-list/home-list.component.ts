@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { List } from '../../beans/list';
+import { ListService } from '../../services/list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-list',
@@ -10,18 +12,39 @@ import { List } from '../../beans/list';
 export class HomeListComponent implements OnInit {
 
   lists: List[] = [];
+  inputId: number;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
+    this.activatedRoute.params.subscribe(params => {
+      if (params['id'] != null && params['id'] != "") {
+        this.inputId = params['id'];
+      }
+    });
+  }
 
   ngOnInit(){
     this.getUserLists();
   }
 
   getUserLists(){
-    this.httpService.getListById(2)
+    this.listService.getListById(this.inputId)
     .subscribe(
       listResponse => this.lists = listResponse
     );
+  }
+
+  addList(list:List){
+    this.listService.addToList(list).subscribe(
+      listResponse => this.lists.push(listResponse)
+    );
+  }
+
+  deleteList(list: List){
+    this.lists = this.lists.filter(l => l !== list);
+    this.listService.deleteList(list).subscribe(
+      response => console.log(response)
+    );
+    console.log(this.lists);
   }
  
 

@@ -13,6 +13,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mock/in-memory-data-service';
 import { HttpService } from './services/http.service';
 import { MainRouterModule } from './routing/mainRouterModule';
+import { LoginService } from './services/login.service';
+import { ListService } from './services/list.service';
 
 
 @NgModule({
@@ -31,7 +33,7 @@ import { MainRouterModule } from './routing/mainRouterModule';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     MainRouterModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, LoginService, ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
