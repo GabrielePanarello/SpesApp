@@ -15,7 +15,7 @@ import { HttpService } from './services/http.service';
 import { MainRouterModule } from './routing/mainRouterModule';
 import { LoginService } from './services/login.service';
 import { ListService } from './services/list.service';
-import { ListDetailComponent } from './Components/list-detail/list-detail.component';
+import { ListDetailComponent } from './components/list-detail/list-detail.component';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { ListDetailComponent } from './Components/list-detail/list-detail.compon
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation:false}),
     MainRouterModule
   ],
   providers: [HttpService, LoginService, ListService],

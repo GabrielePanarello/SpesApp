@@ -47,5 +47,8 @@ export class HomeListComponent implements OnInit {
     console.log(this.lists);
   }
  
+  goToDetail(id:number){
+    this.router.navigate(["list/"+id]);
+  }
 
 }

@@ -4,6 +4,7 @@ import { List } from '../beans/list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { catchError, tap, map, filter } from 'rxjs/operators';
+import { Product } from '../beans/product';
 
 
 const httpOptions = {
@@ -16,7 +17,7 @@ export class ListService {
   constructor(private http: HttpClient, private httpService: HttpService) { }
 
   getList(): Observable<List[]>{
-    return this.http.get<List[]>(this.httpService.getUrl()+"lists",httpOptions)
+    return this.http.get<List[]>(this.httpService.getUrl()+"lists")
     .pipe(
       catchError(this.httpService.handleError('getList',[]))
     );
@@ -26,6 +27,13 @@ export class ListService {
     return this.http.get<List[]>(this.httpService.getUrl()+"lists",httpOptions)
     .pipe(
       map(lists => lists.filter(list => list.userId == userId))
+    );
+  }
+
+  getItemListById(id: number): Observable<List>{
+    return this.http.get<List>(this.httpService.getUrl()+"lists",httpOptions)
+    .pipe(
+      catchError(this.httpService.handleError('getList',null))
     );
   }
 
