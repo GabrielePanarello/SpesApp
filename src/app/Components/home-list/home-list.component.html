@@ -56,21 +56,23 @@
 <div id="myEditModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <img src="assets/faispesa_txt.png" class="login-title">
-            <h2> Modifica Lista </h2>
             <span (click)="closeEdit()" class="close">&times;</span>
+            <h2> Modifica Lista </h2>
         </div>
         <div class="modal-body">
             <form class="w3-container">
+                
                 <input name="listName" type="text" class="w3-input">
 
                 <input name="listDescription" type="text" class="w3-input">
-
-                <button (click)="closeEdit()" class="w3-btn">
-                    <h4>Registrati</h4>
+                    
+                <hr>
+                <button (click)="closeEdit()" class="w3-btn" style="background-color:white;
+                                                                    border:1px solid #58b0e0;">
+                    <h4 style="color: #58b0e0;">Annulla</h4>
                 </button>
                 <button (click)="updateList(newList)" class="w3-btn">
-                    <h4>Registrati</h4>
+                    <h4>Conferma</h4>
                 </button>
             </form>
         </div>
