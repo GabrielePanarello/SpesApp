@@ -51,4 +51,11 @@ export class HomeListComponent implements OnInit {
     this.router.navigate(["list/"+id]);
   }
 
+  openEdit(){
+    document.getElementById("myEditModal").style.display="block";
+  }
+  closeEdit(){
+    document.getElementById("myEditModal").style.display="none";
+  }
+
 }

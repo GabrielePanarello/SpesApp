@@ -5,10 +5,15 @@
     </div>
     <div class="listContainer">
         <div class="welcomeContainer">
-            <p id="welcome"><b>benvenuto!</b></p>
-            <p id="subWelcome"><b>Inizia a creare le tue liste!</b></p>
+            <p id="welcome">
+                <b>benvenuto!</b>
+            </p>
+            <p id="subWelcome">
+                <b>Inizia a creare le tue liste!</b>
+            </p>
             <img id="listImg" src="../../../assets/home-assets/home_liste.png">
-            <p id="subImg">Crea ora la tua prima<br>lista della spesa!</p>
+            <p id="subImg">Crea ora la tua prima
+                <br>lista della spesa!</p>
         </div>
 
         <img id="arrow" src="../../../assets/homeList-assets/arrow_big.png">
@@ -34,7 +39,7 @@
                         <p id="titleFooter">{{list.name}}</p>
                     </div>
                     <div id="footerList">
-                        <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="">
+                        <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="" (click)="openEdit()">
                         <img (click)="goToDetail(list.id)" id="send" src="../../../assets/homeList-assets/send.png" alt="">
                         <img (click)="deleteList(list)" id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
                     </div>
@@ -48,4 +53,27 @@
     </div>
 </div>
 
+<div id="myEditModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <img src="assets/faispesa_txt.png" class="login-title">
+            <h2> Modifica Lista </h2>
+            <span (click)="closeEdit()" class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form class="w3-container">
+                <input name="listName" type="text" class="w3-input">
+
+                <input name="listDescription" type="text" class="w3-input">
+
+                <button (click)="closeEdit()" class="w3-btn">
+                    <h4>Registrati</h4>
+                </button>
+                <button (click)="updateList(newList)" class="w3-btn">
+                    <h4>Registrati</h4>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 <app-footer></app-footer>
