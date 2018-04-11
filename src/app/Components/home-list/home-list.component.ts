@@ -57,5 +57,11 @@ export class HomeListComponent implements OnInit {
   closeEdit(){
     document.getElementById("myEditModal").style.display="none";
   }
+  openDelete(){
+    document.getElementById("myDeleteModal").style.display="block";
+  }
+  closeDelete(){
+    document.getElementById("myDeleteModal").style.display="none";
+  }
 
 }
