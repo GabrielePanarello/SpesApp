@@ -12,7 +12,7 @@ import { List } from '../../beans/list';
 export class ListDetailComponent implements OnInit {
 
   inputId : number;
-  nLists: number = 0;
+  nLists: number ;
   userId: number;
   products: Product[] = [];
 
@@ -27,7 +27,7 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getUserId();
-    this.getLists();
+    this.getListLenght();
     this.getProducts();
   }
 
@@ -37,20 +37,18 @@ export class ListDetailComponent implements OnInit {
     );
   }
 
-  getLists(){
-    this.listService.getListById(this.userId).subscribe(
-      lists => console.log(lists.length)//this.nLists = lists.length
-    )
+  getListLenght(){
+    this.listService.getItemListById(this.inputId).subscribe(
+      list => this.listService.getListById(list.userId).subscribe(
+        lists => this.nLists = lists.length
+      )
+    );
   }
 
   getProducts(){
     this.listService.getItemListById(this.inputId).subscribe(
       list => this.products = list.product
     );
-  }
-
-  goBack(){
-    this.router.navigate(["/user/"+this.userId]);
   }
 
 }

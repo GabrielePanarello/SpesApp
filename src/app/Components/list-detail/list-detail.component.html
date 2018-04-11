@@ -1,7 +1,5 @@
 <app-header-after-login></app-header-after-login>
-<div class="subHeader">
-    <p (click)="goBack()" id="titleHeader">{{nLists}} Liste</p>
-</div>
+<app-sub-header [listLength]="nLists" [userId]="userId"></app-sub-header>
 <div class="wrapper">
 
     <ng-container *ngFor="let product of products">

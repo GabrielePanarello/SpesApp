@@ -1,9 +1,7 @@
 <app-header-after-login></app-header-after-login>
+<app-sub-header [listLength]="lists.length"></app-sub-header>
 <ng-container *ngIf="lists.length == 0">
     <div class="noLists">
-        <div class="subHeader">
-            <p id="titleHeader">Nessuna lista presente</p>
-        </div>
         <div class="listContainer">
             <div class="welcomeContainer">
                 <p id="welcome">
@@ -27,82 +25,77 @@
 </ng-container>
 
 <div class="hasLists">
-    <div class="subHeader">
-        <p id="titleHeader">{{lists.length}} Liste</p>
-    </div>
     <div class="listPopulatedContainer">
         <div class="listWrapper">
-            <ng-container *ngFor="let list of lists">
-                <div class="listTry">
-                    <div id="headerList">
-                        <p id="titleHeaderList">{{list.name}}</p>
-                    </div>
-                    <div id="footerTitleList">
-                        <p id="titleFooter">{{list.name}}</p>
-                    </div>
-                    <div id="footerList">
-                        <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="" (click)="openEdit()">
-                        <div id="myEditModal" class="modal">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <span (click)="closeEdit()" class="close">&times;</span>
-                                    <h2> Modifica Lista </h2>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="w3-container">
-
-                                        <input [(ngModel)]="list.name" name="listName" type="text" class="w3-input" value="{{list.name}}">
-
-                                        <input name="listDescription" type="text" class="w3-input" value="{{list.description}}">
-
-                                        <hr>
-                                        <button (click)="closeEdit()" class="w3-btn" style="background-color:white;
-                                                                                            border:1px solid #58b0e0;">
-                                                <h4 style="color: #58b0e0;">Annulla</h4>
-                                            </button>
-                                        <button (click)="editList(list)" class="w3-btn">
-                                                <h4>Conferma</h4>
-                                            </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <img (click)="goToDetail(list.id)" id="send" src="../../../assets/homeList-assets/send.png" alt="">
-                        <img (click)="openDelete()" id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
-                    </div>
+            <div *ngFor="let list of lists" class="listTry">
+                <div id="headerList">
+                    <p id="titleHeaderList">{{list.name}}</p>
                 </div>
-            </ng-container>
+                <div id="footerTitleList">
+                    <p id="titleFooter">{{list.name}}</p>
+                </div>
+                <div id="footerList">
+                    <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="" (click)="openEdit()">
 
+                    <img (click)="goToDetail(list.id)" id="send" src="../../../assets/homeList-assets/send.png" alt="">
+                    <img (click)="openDelete()" id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
+                </div>
+
+            </div>
         </div>
         <div class="addDiv">
             <img id="add" src="../../../assets/homeList-assets/aggiungi.png">
         </div>
     </div>
+
+    <ng-container *ngFor="let list of lists; let i = index">
+        <div id="myEditModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span (click)="closeEdit()" class="close">&times;</span>
+                    <h2> Modifica Lista </h2>
+                </div>
+                <div class="modal-body">
+                    <form class="w3-container">
+
+                        <input [(ngModel)]="list.name" name="listName" type="text" class="w3-input" value="{{list.name}}">
+
+                        <input [(ngModel)]="list.description" name="listDescription" type="text" class="w3-input" value="{{list.description}}">
+                        <hr>
+                        <button (click)="closeEdit()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                    <h4 style="color: #58b0e0;">Annulla</h4>
+                                </button>
+                        <button (click)="editList(list)" class="w3-btn">
+                                    <h4>Conferma</h4>
+                                </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="myDeleteModal" class="modal">
+            <div class="modal-content" style="height:45%">
+                <div class="modal-header">
+                    <span (click)="closeDelete()" class="close">&times;</span>
+                    <h2> Elimina Lista </h2>
+                </div>
+                <div class="modal-body">
+                    <form class="w3-container" style="margin-top:15%">
+                        <h4> Vuoi eliminare definitivamente la lista {{list.name}} ? </h4>
+                        <hr>
+                        <button (click)="closeDelete()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                            <h4 style="color: #58b0e0;">Annulla</h4>
+                        </button>
+
+                        <button (click)="deleteList(list)" class="w3-btn">
+                            <h4>Conferma</h4>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-container>
 </div>
 
 
-
-<!--<div id="myDeleteModal" class="modal">
-    <div class="modal-content" style="height:45%">
-        <div class="modal-header">
-            <span (click)="closeDelete()" class="close">&times;</span>
-            <h2> Elimina Lista </h2>
-        </div>
-        <div class="modal-body">
-            <form class="w3-container" style="margin-top:15%">
-
-                <h4> Vuoi eliminare definitivamente la lista {{list.name}} ? </h4>
-
-                <hr>
-                <button (click)="closeDelete()" class="w3-btn" style="background-color:white;
-                                                                        border:1px solid #58b0e0;">
-                        <h4 style="color: #58b0e0;">Annulla</h4>
-                    </button>
-                <button (click)="deleteList(list)" class="w3-btn">
-                        <h4>Conferma</h4>
-                    </button>
-            </form>
-        </div>
-    </div>
-</div>-->
 <app-footer></app-footer>
