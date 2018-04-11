@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-after-login',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-after-login.component.css']
 })
 export class HeaderAfterLoginComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
 
 }

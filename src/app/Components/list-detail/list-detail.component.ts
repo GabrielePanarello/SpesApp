@@ -12,7 +12,8 @@ import { List } from '../../beans/list';
 export class ListDetailComponent implements OnInit {
 
   inputId : number;
-  nLists: number;
+  nLists: number = 0;
+  userId: number;
   products: Product[] = [];
 
   constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
@@ -25,24 +26,31 @@ export class ListDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUserId();
     this.getLists();
     this.getProducts();
   }
 
-  getLists(){
-    this.listService.getListById(this.inputId).subscribe(
-      lists => this.nLists = lists.length
+  getUserId(){
+    this.listService.getItemListById(this.inputId).subscribe(
+      list => this.userId = list.userId
     );
   }
 
+  getLists(){
+    this.listService.getListById(this.userId).subscribe(
+      lists => console.log(lists.length)//this.nLists = lists.length
+    )
+  }
+
   getProducts(){
-    this.listService.getItemListById(1).subscribe(
-      list => this.products = list[0].product
+    this.listService.getItemListById(this.inputId).subscribe(
+      list => this.products = list.product
     );
   }
 
   goBack(){
-    this.router.navigate(["/user/"+this.inputId]);
+    this.router.navigate(["/user/"+this.userId]);
   }
 
 }

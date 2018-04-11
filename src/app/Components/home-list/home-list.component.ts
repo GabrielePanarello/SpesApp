@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { List } from '../../beans/list';
 import { ListService } from '../../services/list.service';
@@ -13,6 +13,7 @@ export class HomeListComponent implements OnInit {
 
   lists: List[] = [];
   inputId: number;
+  editedList: List = undefined;
 
   constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
@@ -39,12 +40,18 @@ export class HomeListComponent implements OnInit {
     );
   }
 
+  editList(list:List){
+    this.listService.editList(list).subscribe(
+      () => this.lists[this.lists.findIndex((obj => obj.id == list.id))] = list
+    );
+    this.closeEdit();
+  }
+
   deleteList(list: List){
     this.lists = this.lists.filter(l => l !== list);
     this.listService.deleteList(list).subscribe(
       response => console.log(response)
     );
-    console.log(this.lists);
   }
  
   goToDetail(id:number){
@@ -52,6 +59,7 @@ export class HomeListComponent implements OnInit {
   }
 
   openEdit(){
+    
     document.getElementById("myEditModal").style.display="block";
   }
   closeEdit(){

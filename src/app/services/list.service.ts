@@ -33,6 +33,7 @@ export class ListService {
   getItemListById(id: number): Observable<List>{
     return this.http.get<List>(this.httpService.getUrl()+"lists",httpOptions)
     .pipe(
+      map(list => list[id-1]),
       catchError(this.httpService.handleError('getList',null))
     );
   }
@@ -45,10 +46,17 @@ export class ListService {
     )
   }
 
+  editList(list:List):Observable<any>{
+    return this.http.put<List>(this.httpService.getUrl()+"lists/"+list.id,list,httpOptions)
+    .pipe(
+      catchError(this.httpService.handleError<any>('Edit List error'))
+    );
+  }
+
   deleteList(list: List): Observable<List> {
     return this.http.delete<List>(this.httpService.getUrl()+"lists/"+list.id,httpOptions)
     .pipe(
-      catchError(this.httpService.handleError<List>('delete Hero error'))
+      catchError(this.httpService.handleError<List>('Delete List error'))
     );
   }
 
