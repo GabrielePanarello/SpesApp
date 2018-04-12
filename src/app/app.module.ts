@@ -17,6 +17,7 @@ import { LoginService } from './services/login.service';
 import { ListService } from './services/list.service';
 import { ListDetailComponent } from './components/list-detail/list-detail.component';
 import { SortablejsModule } from 'angular-sortablejs';
+import { ProductService } from './services/product.service';
 
 
 
@@ -38,7 +39,7 @@ import { SortablejsModule } from 'angular-sortablejs';
     MainRouterModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [HttpService, LoginService, ListService],
+  providers: [HttpService, LoginService, ListService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

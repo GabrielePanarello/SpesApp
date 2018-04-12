@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ListService } from '../../services/list.service';
 import { Product } from '../../beans/product';
 import { List } from '../../beans/list';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-list-detail',
@@ -18,7 +19,7 @@ export class ListDetailComponent implements OnInit {
   indexContainer : number;
   products: Product[] = [];
 
-  constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
+  constructor(private productService: ProductService, private listService: ListService, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.inputId = params['id'];
@@ -33,7 +34,7 @@ export class ListDetailComponent implements OnInit {
   }
   
   getListLenght(){
-    this.listService.getItemListById(this.inputId).subscribe(
+    this.productService.getItemListById(this.inputId).subscribe(
       list => this.listService.getListById(list.userId).subscribe(
         lists => this.nLists = lists.length
       )
@@ -41,12 +42,20 @@ export class ListDetailComponent implements OnInit {
   }
 
   getProducts(){
-    this.listService.getItemListById(this.inputId).subscribe(
+    this.productService.getItemListById(this.inputId).subscribe(
       list => {
         this.products = list.product;
         this.userId = list.userId;
         this.listName = list.name;
         console.log(this.listName);
+      }
+    );
+  }
+
+  addProduct(product: Product){
+    this.productService.addToProducts(product).subscribe(
+      responseProduct => {
+        this.products.push(responseProduct);
       }
     );
   }
@@ -71,9 +80,7 @@ export class ListDetailComponent implements OnInit {
 
   pinProduct(id:string){
     this.closeEdit(id);
-    // document.getElementById("pin-"+id).style.display="block";
     document.getElementById("name-"+id).style.textDecoration ="line-through"
-    // document.getElementById("wrapper-"+id).style.position="relative";
   }
 
 }

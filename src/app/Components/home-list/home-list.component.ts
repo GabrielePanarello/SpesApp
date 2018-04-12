@@ -3,6 +3,7 @@ import { HttpService } from '../../services/http.service';
 import { List } from '../../beans/list';
 import { ListService } from '../../services/list.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../../beans/product';
 
 @Component({
   selector: 'app-home-list',
@@ -12,6 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeListComponent implements OnInit {
 
   lists: List[] = [];
+  products: Product[] = [];
+  newListName = "";
+  newListDesc = "";
+  newList: List;
   inputId: number;
   
   constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
@@ -29,12 +34,14 @@ export class HomeListComponent implements OnInit {
   getUserLists(){
     this.listService.getListById(this.inputId)
     .subscribe(
-      listResponse => this.lists = listResponse
+      listResponse =>
+      { this.lists = listResponse;}
     );
   }
 
-  addList(list:List){
-    this.listService.addToList(list).subscribe(
+  addList(name: string, description:string){
+    this.newList = new List(5,name,"-",this.products,this.inputId,description);
+    this.listService.addToList(this.newList).subscribe(
       listResponse => this.lists.push(listResponse)
     );
   }
@@ -57,15 +64,26 @@ export class HomeListComponent implements OnInit {
     this.router.navigate(["list/"+id]);
   }
 
+  openAdd(){
+    document.getElementById("myAddModal").style.display="block";
+  }
+
+  closeAdd(){
+    document.getElementById("myAddModal").style.display="none";
+  }
+
   openEdit(id: string){
     document.getElementById("myEditModal-"+id).style.display="block";
   }
+
   closeEdit(){
     document.getElementById("myEditModal").style.display="none";
   }
+
   openDelete(id: string){
     document.getElementById("myDeleteModal-"+id).style.display="block";
   }
+
   closeDelete(){
     document.getElementById("myDeleteModal").style.display="none";
   }

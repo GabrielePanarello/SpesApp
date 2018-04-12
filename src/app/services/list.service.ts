@@ -30,17 +30,8 @@ export class ListService {
     );
   }
 
-  getItemListById(id: number): Observable<List>{
-    
-    return this.http.get<List>(this.httpService.getUrl()+"lists",httpOptions)
-    .pipe(
-      map(list => list[id === 1 ? id : id-1]),
-      catchError(this.httpService.handleError('getList',null))
-    );
-  }
-
   addToList(list: List): Observable<List>{
-    return this.http.post<List>(this.httpService.getUrl()+"lists",httpOptions)
+    return this.http.post<List>(this.httpService.getUrl()+"lists",list,httpOptions)
     .pipe(
       tap((list: List) => console.log("List Added")),
       catchError(this.httpService.handleError<List>('List Add Error'))

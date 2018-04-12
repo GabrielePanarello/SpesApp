@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { List } from '../beans/list';
+import { HttpService } from './http.service';
+import { map, catchError, tap } from 'rxjs/operators';
+import { Product } from '../beans/product';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+@Injectable()
+export class ProductService {
+
+  constructor(private http: HttpClient, private httpService: HttpService) { }
+
+  getItemListById(id: number): Observable<List>{
+    return this.http.get<List>(this.httpService.getUrl()+"lists",httpOptions)
+    .pipe(
+      map(list => list[id === 1 ? id : id-1]),
+      catchError(this.httpService.handleError('getList',null))
+    );
+  }
+
+  addToProducts(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.httpService.getUrl()+"users",product,httpOptions)
+    .pipe(
+      tap((responseList: Product) => console.log("product added")),
+      catchError(this.httpService.handleError('product',undefined))
+    );
+  }
+
+
+}
