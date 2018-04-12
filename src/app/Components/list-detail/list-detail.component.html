@@ -1,8 +1,11 @@
 <app-header-after-login></app-header-after-login>
-<app-sub-header [listLength]="nLists" [userId]="userId"></app-sub-header>
-<div class="wrapper">
+<div class="subHeader">
+    <p (click)="goBack()" id="titleHeader">{{nLists}} Liste > {{listName}}</p>
+</div>
 
-    <ng-container *ngFor="let product of products">
+
+<ng-container *ngFor="let product of products; index as i">
+    <div id="wrapper">
         <div id="imageContainer">
             <img src="../../../assets/list-detail-assets/product_6.png">
         </div>
@@ -20,9 +23,14 @@
         </div>
 
         <div id="optionsContainer">
-            <img src="../../../assets/generic-assets/more.png">
+            <img (click)="showEdit(product.id)" src="../../../assets/generic-assets/more.png">
         </div>
-    </ng-container>
+    </div>
 
-
-</div>
+    <div id="{{product.id}}" class="wrapperMenu">
+        <img src="../../../assets/list-detail-assets/drag&drop.png" alt="">
+        <img src="../../../assets/homeList-assets/modify.png" alt="">
+        <img src="../../../assets/homeList-assets/delete.png" alt="">
+        <img src="../../../assets/list-detail-assets/cancel white.png" alt="">
+    </div>
+</ng-container>

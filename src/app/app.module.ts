@@ -16,7 +16,6 @@ import { MainRouterModule } from './routing/mainRouterModule';
 import { LoginService } from './services/login.service';
 import { ListService } from './services/list.service';
 import { ListDetailComponent } from './components/list-detail/list-detail.component';
-import { SubHeaderComponent } from './components/sub-header/sub-header.component';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import { SubHeaderComponent } from './components/sub-header/sub-header.component
     HomeComponent,
     HomeListComponent,
     FooterComponent,
-    ListDetailComponent,
-    SubHeaderComponent
+    ListDetailComponent 
   ],
   imports: [
     BrowserModule,

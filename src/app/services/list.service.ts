@@ -34,7 +34,7 @@ export class ListService {
     
     return this.http.get<List>(this.httpService.getUrl()+"lists",httpOptions)
     .pipe(
-      map(list => list[id == 1 ? id : id-1]),
+      map(list => list[id === 1 ? id : id-1]),
       catchError(this.httpService.handleError('getList',null))
     );
   }

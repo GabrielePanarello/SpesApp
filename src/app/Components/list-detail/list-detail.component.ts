@@ -14,6 +14,8 @@ export class ListDetailComponent implements OnInit {
   inputId : number;
   nLists: number ;
   userId: number;
+  listName: string;
+  indexContainer : number;
   products: Product[] = [];
 
   constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
@@ -26,17 +28,10 @@ export class ListDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserId();
     this.getListLenght();
     this.getProducts();
   }
-
-  getUserId(){
-    this.listService.getItemListById(this.inputId).subscribe(
-      list => this.userId = list.userId
-    );
-  }
-
+  
   getListLenght(){
     this.listService.getItemListById(this.inputId).subscribe(
       list => this.listService.getListById(list.userId).subscribe(
@@ -47,8 +42,25 @@ export class ListDetailComponent implements OnInit {
 
   getProducts(){
     this.listService.getItemListById(this.inputId).subscribe(
-      list => this.products = list.product
+      list => {
+        this.products = list.product;
+        this.userId = list.userId;
+        this.listName = list.name;
+        console.log(this.listName);
+      }
     );
+  }
+
+  goBack(){
+    this.router.navigate(["user/"+this.userId]);
+  }
+
+  showEdit(id:string){
+    if(document.getElementById(id).style.display == "block"){
+    document.getElementById(id).style.display="none";
+    }else{
+      document.getElementById(id).style.display="block";
+    }
   }
 
 }

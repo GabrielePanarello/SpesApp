@@ -13,8 +13,7 @@ export class HomeListComponent implements OnInit {
 
   lists: List[] = [];
   inputId: number;
-  editedList: List = undefined;
-
+  
   constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
@@ -58,15 +57,14 @@ export class HomeListComponent implements OnInit {
     this.router.navigate(["list/"+id]);
   }
 
-  openEdit(){
-    
-    document.getElementById("myEditModal").style.display="block";
+  openEdit(id: string){
+    document.getElementById("myEditModal-"+id).style.display="block";
   }
   closeEdit(){
     document.getElementById("myEditModal").style.display="none";
   }
-  openDelete(){
-    document.getElementById("myDeleteModal").style.display="block";
+  openDelete(id: string){
+    document.getElementById("myDeleteModal-"+id).style.display="block";
   }
   closeDelete(){
     document.getElementById("myDeleteModal").style.display="none";
