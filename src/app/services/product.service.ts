@@ -13,6 +13,7 @@ const httpOptions = {
 @Injectable()
 export class ProductService {
 
+
   constructor(private http: HttpClient, private httpService: HttpService) { }
 
   getItemListById(id: number): Observable<List>{
@@ -24,10 +25,17 @@ export class ProductService {
   }
 
   addToProducts(product: Product): Observable<Product>{
-    return this.http.post<Product>(this.httpService.getUrl()+"users",product,httpOptions)
+    return this.http.post<Product>(this.httpService.getUrl()+"lists",product,httpOptions)
     .pipe(
       tap((responseList: Product) => console.log("product added")),
       catchError(this.httpService.handleError('product',undefined))
+    );
+  }
+  
+  deleteProduct(product: Product): Observable<Product> {
+    return this.http.delete<Product>(this.httpService.getUrl()+"lists/products/"+product.id,httpOptions)
+    .pipe(
+      catchError(this.httpService.handleError<Product>('Delete List error'))
     );
   }
 

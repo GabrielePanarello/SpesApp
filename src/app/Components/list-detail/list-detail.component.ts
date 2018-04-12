@@ -44,6 +44,7 @@ export class ListDetailComponent implements OnInit {
   getProducts(){
     this.productService.getItemListById(this.inputId).subscribe(
       list => {
+        console.log(this.inputId);
         this.products = list.product;
         this.userId = list.userId;
         this.listName = list.name;
@@ -57,6 +58,12 @@ export class ListDetailComponent implements OnInit {
       responseProduct => {
         this.products.push(responseProduct);
       }
+    );
+  }
+
+  deleteProduct(product: Product){
+    this.productService.deleteProduct(product).subscribe(
+      response => this.products = this.products.filter(p => p !== product)
     );
   }
 

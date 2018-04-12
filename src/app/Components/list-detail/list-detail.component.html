@@ -33,7 +33,7 @@
             <div id="{{product.id}}" class="wrapperMenu">
                 <img src="../../../assets/list-detail-assets/drag&drop.png" alt="">
                 <img src="../../../assets/homeList-assets/modify.png" alt="">
-                <img src="../../../assets/homeList-assets/delete.png" alt="">
+                <img (click)="deleteProduct(product)" src="../../../assets/homeList-assets/delete.png" alt="">
                 <img (click)="pinProduct(product.id)" src="../../../assets/list-detail-assets/cancel white.png" alt="">
             </div>
         </div>
