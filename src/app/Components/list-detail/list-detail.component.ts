@@ -57,10 +57,17 @@ export class ListDetailComponent implements OnInit {
 
   showEdit(id:string){
     if(document.getElementById(id).style.display == "block"){
-    document.getElementById(id).style.display="none";
+      this.closeEdit(id);
     }else{
       document.getElementById(id).style.display="block";
+      document.getElementById("wrapper-"+id).style.position="absolute";
     }
+  }
+
+  closeEdit(id:string){
+    document.getElementById(id).style.display="none";
+    document.getElementById("wrapper-"+id).style.position="relative";
+
   }
 
 }

@@ -90,16 +90,6 @@
     grid-gap: 20px;
 }
 
-.list1 {
-    grid-column: 1;
-    grid-row: 1;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    background-image: url("../../../assets/homeList-assets/fruit_vegetable.jpg");
-    box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.75);
-}
-
 .listTry {
     position: relative;
     width: 200px;
@@ -185,6 +175,9 @@
 .listTry:hover #footerTitleList {
     display: none;
 }
+
+
+/*GRAZIE W3 SCHOOL*/
 
 .modal {
     display: none;
