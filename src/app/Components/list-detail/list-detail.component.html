@@ -11,7 +11,7 @@
                     <img src="../../../assets/list-detail-assets/product_6.png">
                 </div>
 
-                <div id="nameContainer">
+                <div id="name-{{product.id}}" class="nameContainer">
                     <h3>{{product.name}}</h3>
                 </div>
 
@@ -28,12 +28,13 @@
                 </div>
             </div>
 
+            <div id="pin-{{product.id}}" class="pinned"></div>
 
             <div id="{{product.id}}" class="wrapperMenu">
                 <img src="../../../assets/list-detail-assets/drag&drop.png" alt="">
                 <img src="../../../assets/homeList-assets/modify.png" alt="">
                 <img src="../../../assets/homeList-assets/delete.png" alt="">
-                <img (click)="closeEdit(product.id)" src="../../../assets/list-detail-assets/cancel white.png" alt="">
+                <img (click)="pinProduct(product.id)" src="../../../assets/list-detail-assets/cancel white.png" alt="">
             </div>
         </div>
     </ng-container>

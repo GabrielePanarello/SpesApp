@@ -67,7 +67,13 @@ export class ListDetailComponent implements OnInit {
   closeEdit(id:string){
     document.getElementById(id).style.display="none";
     document.getElementById("wrapper-"+id).style.position="relative";
+  }
 
+  pinProduct(id:string){
+    this.closeEdit(id);
+    // document.getElementById("pin-"+id).style.display="block";
+    document.getElementById("name-"+id).style.textDecoration ="line-through"
+    // document.getElementById("wrapper-"+id).style.position="relative";
   }
 
 }

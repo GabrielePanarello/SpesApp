@@ -71,3 +71,11 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+.pinned {
+    display: none;
+    height: 5px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+}
