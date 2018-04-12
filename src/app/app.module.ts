@@ -16,6 +16,8 @@ import { MainRouterModule } from './routing/mainRouterModule';
 import { LoginService } from './services/login.service';
 import { ListService } from './services/list.service';
 import { ListDetailComponent } from './components/list-detail/list-detail.component';
+import { SortablejsModule } from 'angular-sortablejs';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { ListDetailComponent } from './components/list-detail/list-detail.compon
     HttpClientModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation:false}),
-    MainRouterModule
+    MainRouterModule,
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [HttpService, LoginService, ListService],
   bootstrap: [AppComponent]
