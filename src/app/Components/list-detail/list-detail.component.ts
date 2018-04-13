@@ -52,7 +52,7 @@ export class ListDetailComponent implements OnInit {
     this.productService.editProduct(product).subscribe(
       () => this.products[this.products.findIndex((obj => obj.id == product.id))] = product
     );
-    //this.closeEditItemNumber(product.id);
+    this.closeEditItem(product.id);
   }
 
   addProduct(product: Product){
@@ -87,8 +87,7 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("wrapper-"+id).style.position="relative";
   }
 
-  closeEditItem(id:string){
-    //document.getElementById(id).style.display="none";
+  closeEditItem(id: string | number){
     document.getElementById("myEditItem-"+id).style.display="none";
   }
 
