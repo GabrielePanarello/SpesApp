@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderAfterLoginComponent } from './components/header-after-login/header-after-login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeListComponent } from './components/home-list/home-list.component';
@@ -23,6 +22,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { ComunicatorService } from './services/comunicator.service';
 import { DetailGuardService } from './services/detail-guard.service';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { HeaderAfterLoginComponent } from './components/header-after-login/header-after-login.component';
 
 
 

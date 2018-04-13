@@ -28,11 +28,6 @@ export class HomeListComponent implements OnInit {
         this.inputId = params['id'];
       }
     });
-
-    this.comunicatorService.mySubjectId$.subscribe ((newValue: number) => {
-      console.log(newValue);
-      this.inputId = newValue;
-    });
   }
 
 
