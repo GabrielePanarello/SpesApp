@@ -12,7 +12,7 @@
 }
 
 .introduzionePagina {
-    margin-top:10px;
+    margin-top: 10px;
     margin-left: 50px;
 }
 
@@ -23,7 +23,9 @@
 }
 
 #profileImage {
-    margin-left: 45%;
+    width: 20%;
+    border-radius: 80%;
+    margin-left: 39.5%;
     margin-top: 40px;
 }
 
@@ -74,7 +76,9 @@ img {
     margin-top: -1px;
 }
 
+
 /*dropdown*/
+
 .dropdown {
     position: relative;
 }
@@ -84,9 +88,10 @@ img {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }

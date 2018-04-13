@@ -22,6 +22,14 @@ export class LoginService {
     );
   }
 
+  getUserById(id: number): Observable<User[]> {
+    return this.http.get<User[]>(this.httpService.getUrl()+"users", httpOptions)
+    .pipe(
+      map(users => users.filter(user => user.id === id)),
+      catchError(this.httpService.handleError('getUsers',[]))
+    );
+  }
+
   register(user: User): Observable<User> {
     return this.http.post<User>(this.httpService.getUrl()+"users", user, httpOptions)
     .pipe(
