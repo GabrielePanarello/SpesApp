@@ -23,5 +23,8 @@ export class HeaderAfterLoginComponent implements OnInit {
     this.router.navigate(["profile"]);
   }
 
-
+  logout(){
+    sessionStorage.removeItem("user");
+    this.router.navigate(["home"]);
+  }
 }
