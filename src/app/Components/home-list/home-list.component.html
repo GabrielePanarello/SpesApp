@@ -1,4 +1,4 @@
-<app-header-after-login></app-header-after-login>
+<app-header-after-login [userId]="inputId"></app-header-after-login>
 <app-loader *ngIf="loaderCheck"></app-loader>
 
 <div *ngIf="lists.length !== 0" class="subHeader">
