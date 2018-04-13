@@ -69,13 +69,13 @@
                 </div>
 
                 <div id="myDeleteModal-{{list.id}}" class="modal">
-                    <div class="modal-content" style="height:45%">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <span (click)="closeDelete()" class="close">&times;</span>
                             <h2> Elimina Lista </h2>
                         </div>
                         <div class="modal-body">
-                            <form class="w3-container" style="margin-top:15%">
+                            <form class="w3-container">
                                 <h4> Vuoi eliminare definitivamente la lista {{list.name}} ? </h4>
                                 <hr>
                                 <button (click)="closeDelete()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
