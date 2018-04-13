@@ -87,8 +87,8 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("wrapper-"+id).style.position="relative";
   }
 
-  closeEditItem(){
-    document.getElementById("myEditItem").style.display="none";
+  closeEditItem(id:String){
+    document.getElementById("myEditItem-"+id).style.display="none";
   }
 
   pinProduct(id:string){
@@ -96,8 +96,8 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("name-"+id).style.textDecoration ="line-through"
   }
 
-  openEditItem(){
-    document.getElementById("myEditItem").style.display="block";
+  openEditItem(id:String){
+    document.getElementById("myEditItem-"+id).style.display="block";
   }
   
   cancel(id:string){
