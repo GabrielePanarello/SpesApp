@@ -225,8 +225,14 @@
     z-index: -1;
 }
 @media only screen and (max-width: 768px) {
-.imgs {
-    position: relative;
-    width: 89%;
+    .imgs {
+        position: relative;
+        width: 82%;
+    }
 }
+@media only screen and (width: 1024px) {
+    .imgs {
+        position: relative;
+        width: 82%;
+    }
 }

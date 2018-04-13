@@ -258,7 +258,7 @@ button {
     }
     .grid-container {
         background-color: white;
-        width: 94%;
+        width: 100%;
         height: 70px;
         position: fixed;
     }
