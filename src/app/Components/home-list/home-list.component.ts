@@ -4,6 +4,7 @@ import { List } from '../../beans/list';
 import { ListService } from '../../services/list.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../beans/product';
+import { ComunicatorService } from '../../services/comunicator.service';
 
 @Component({
   selector: 'app-home-list',
@@ -20,14 +21,20 @@ export class HomeListComponent implements OnInit {
   inputId: number;
   loaderCheck = true;
   
-  constructor(private listService: ListService,private activatedRoute: ActivatedRoute,private router: Router) {
+  constructor(private comunicatorService:ComunicatorService, private listService: ListService,private activatedRoute: ActivatedRoute,private router: Router) {
 
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.inputId = params['id'];
       }
     });
+
+    this.comunicatorService.mySubjectId$.subscribe ((newValue: number) => {
+      console.log(newValue);
+      this.inputId = newValue;
+    });
   }
+
 
   ngOnInit(){
     this.getUserLists();

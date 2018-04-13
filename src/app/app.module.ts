@@ -19,6 +19,8 @@ import { ListDetailComponent } from './components/list-detail/list-detail.compon
 import { SortablejsModule } from 'angular-sortablejs';
 import { ProductService } from './services/product.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { ComunicatorService } from './services/comunicator.service';
 
 
 
@@ -41,7 +43,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     MainRouterModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [HttpService, LoginService, ListService, ProductService],
+  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

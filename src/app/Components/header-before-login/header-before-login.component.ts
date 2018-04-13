@@ -4,6 +4,7 @@ import { HttpService } from '../../services/http.service';
 import { User } from '../../beans/user';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { ComunicatorService } from '../../services/comunicator.service';
 
 @Component({
   selector: 'app-header-before-login',
@@ -16,8 +17,9 @@ export class HeaderBeforeLoginComponent implements OnInit {
   username: string;
   password: string;
   newUser: User = new User();
+  num:string;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private comunicator: ComunicatorService,private router: Router) { }
 
   ngOnInit() {
     this.getUsers();
@@ -27,7 +29,10 @@ export class HeaderBeforeLoginComponent implements OnInit {
     for(let user of this.users){
       if(user.name == this.username && user.password == this.password){
         console.log("Utente Trovato");
+        this.comunicator.changeId(user.id);
+        sessionStorage.setItem("user",""+user.id);
         this.router.navigate(["user/"+user.id]);
+        break;
       }else{
         console.log("Utente Non Trovato");
       }
