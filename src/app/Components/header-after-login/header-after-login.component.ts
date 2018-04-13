@@ -8,9 +8,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderAfterLoginComponent implements OnInit {
   
+  @Input() userId: number;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToLists(){
+    this.router.navigate(["user/"+this.userId]);
   }
 
 

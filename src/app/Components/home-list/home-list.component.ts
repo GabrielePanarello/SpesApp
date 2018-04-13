@@ -18,8 +18,10 @@ export class HomeListComponent implements OnInit {
   newListDesc = "";
   newList: List;
   inputId: number;
+  loaderCheck = true;
   
-  constructor(private listService: ListService,private activatedRoute: ActivatedRoute, private router: Router) { 
+  constructor(private listService: ListService,private activatedRoute: ActivatedRoute,private router: Router) {
+
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.inputId = params['id'];
@@ -35,7 +37,8 @@ export class HomeListComponent implements OnInit {
     this.listService.getListById(this.inputId)
     .subscribe(
       listResponse =>
-      { this.lists = listResponse;}
+      { this.loaderCheck = false;
+        this.lists = listResponse;}
     );
   }
 
@@ -50,7 +53,7 @@ export class HomeListComponent implements OnInit {
     this.listService.editList(list).subscribe(
       () => this.lists[this.lists.findIndex((obj => obj.id == list.id))] = list
     );
-    this.closeEdit();
+    this.closeEdit(list.id);
   }
 
   deleteList(list: List){
@@ -76,16 +79,16 @@ export class HomeListComponent implements OnInit {
     document.getElementById("myEditModal-"+id).style.display="block";
   }
 
-  closeEdit(){
-    document.getElementById("myEditModal").style.display="none";
+  closeEdit(id: string | number){
+    document.getElementById("myEditModal-"+id).style.display="none";
   }
 
   openDelete(id: string){
     document.getElementById("myDeleteModal-"+id).style.display="block";
   }
 
-  closeDelete(){
-    document.getElementById("myDeleteModal").style.display="none";
+  closeDelete(id:string){
+    document.getElementById("myDeleteModal-"+id).style.display="none";
   }
 
 }

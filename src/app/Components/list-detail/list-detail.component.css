@@ -79,3 +79,7 @@
     background-color: black;
     position: absolute;
 }
+
+#add {
+    cursor: pointer;
+}

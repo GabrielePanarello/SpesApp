@@ -1,5 +1,7 @@
 <app-header-after-login></app-header-after-login>
-<div class="subHeader">
+<app-loader *ngIf="loaderCheck"></app-loader>
+
+<div *ngIf="nLists !== undefined" class="subHeader">
     <p (click)="goBack()" id="titleHeader">{{nLists}} Liste > {{listName}}</p>
 </div>
 
@@ -38,4 +40,7 @@
             </div>
         </div>
     </ng-container>
+    <div class="addDiv">
+        <img (click)="openAdd()" id="add" src="../../../assets/homeList-assets/aggiungi.png">
+    </div>
 </div>

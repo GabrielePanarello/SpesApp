@@ -39,5 +39,12 @@ export class ProductService {
     );
   }
 
+  editProduct(product:Product):Observable<any>{
+    return this.http.put<List>(this.httpService.getUrl()+"lists/products/"+product.id,product,httpOptions)
+    .pipe(
+      catchError(this.httpService.handleError<any>('Edit List error'))
+    );
+  }
+
 
 }
