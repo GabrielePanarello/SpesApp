@@ -12,6 +12,7 @@
 }
 
 .introduzionePagina {
+    margin-top:10px;
     margin-left: 50px;
 }
 
@@ -60,6 +61,7 @@
 }
 
 #photo {
+    margin-top: 175px;
     margin-left: -50px;
     width: 60px;
 }
