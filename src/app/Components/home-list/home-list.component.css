@@ -337,3 +337,10 @@ button {
         padding: 10px;
     }
 }
+
+@media (max-width: 1024px) {
+    .modal-content {
+        margin-top:100px;
+        width:60%;
+    }
+}
