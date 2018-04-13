@@ -48,12 +48,12 @@ export class ListDetailComponent implements OnInit {
     );
     
   }
-  /*updateProduct(product:Product){
+  editProduct(product:Product){
     this.productService.editProduct(product).subscribe(
       () => this.products[this.products.findIndex((obj => obj.id == product.id))] = product
     );
-    //this.close();
-  }*/
+    //this.closeEditItemNumber(product.id);
+  }
 
   addProduct(product: Product){
     this.productService.addToProducts(product).subscribe(
@@ -87,9 +87,11 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("wrapper-"+id).style.position="relative";
   }
 
-  closeEditItem(id:String){
+  closeEditItem(id:string){
+    //document.getElementById(id).style.display="none";
     document.getElementById("myEditItem-"+id).style.display="none";
   }
+
 
   pinProduct(id:string){
     this.closeEdit(id);
