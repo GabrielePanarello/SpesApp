@@ -294,4 +294,7 @@ button {
     .modal-footer{
         width: 100%;
     }
+    .close {
+        color: rgb(218, 34, 34);
+    }
 }
