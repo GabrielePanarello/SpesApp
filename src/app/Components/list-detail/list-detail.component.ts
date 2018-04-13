@@ -90,4 +90,11 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("name-"+id).style.textDecoration ="line-through"
   }
 
+  openAdd(){
+    document.getElementById("myAddModal").style.display="block";
+  }
+
+  closeAdd(){
+    document.getElementById("myAddModal").style.display="none";
+  }
 }
