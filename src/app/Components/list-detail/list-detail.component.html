@@ -1,5 +1,7 @@
-<app-header-after-login></app-header-after-login>
-<div class="subHeader">
+<app-header-after-login [userId]="userId"></app-header-after-login>
+<app-loader *ngIf="loaderCheck"></app-loader>
+
+<div *ngIf="nLists !== undefined" class="subHeader">
     <p (click)="goBack()" id="titleHeader">{{nLists}} Liste > {{listName}}</p>
 </div>
 

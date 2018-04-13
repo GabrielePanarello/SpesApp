@@ -1,8 +1,11 @@
-<app-header-after-login></app-header-after-login>
-<div class="subHeader">
+<app-header-after-login [userId]="inputId"></app-header-after-login>
+<app-loader *ngIf="loaderCheck"></app-loader>
+
+<div *ngIf="lists.length !== 0" class="subHeader">
     <p id="titleHeader">{{lists.length}} Liste</p>
 </div>
-<ng-container *ngIf="lists.length == 0">
+
+<ng-container *ngIf="lists.length === 0">
     <div class="noLists">
         <div class="listContainer">
             <div class="welcomeContainer">
@@ -47,8 +50,8 @@
                 <div id="myEditModal-{{list.id}}" class="modal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span (click)="closeEdit()" class="close">&times;</span>
-                            <h2> Modifica Lista </h2>
+                            <span (click)="closeEdit(list.id)" class="close">&times;</span>
+                            <h2 style="margin-top: 3%"> Modifica Lista </h2>
                         </div>
                         <div class="modal-body">
                             <form class="w3-container">
@@ -57,7 +60,7 @@
 
                                 <input [(ngModel)]="list.description" name="listDescription" type="text" class="w3-input" value="{{list.description}}">
                                 <hr>
-                                <button (click)="closeEdit()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                <button (click)="closeEdit(list.id)" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
                                             <h4 style="color: #58b0e0;">Annulla</h4>
                                         </button>
                                 <button (click)="editList(list)" class="w3-btn">
@@ -71,14 +74,14 @@
                 <div id="myDeleteModal-{{list.id}}" class="modal">
                     <div class="modal-content" style="height:45%">
                         <div class="modal-header">
-                            <span (click)="closeDelete()" class="close">&times;</span>
+                            <span (click)="closeDelete(list.id)" class="close">&times;</span>
                             <h2> Elimina Lista </h2>
                         </div>
                         <div class="modal-body">
                             <form class="w3-container" style="margin-top:15%">
                                 <h4> Vuoi eliminare definitivamente la lista {{list.name}} ? </h4>
                                 <hr>
-                                <button (click)="closeDelete()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                <button (click)="closeDelete(list.id)" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
                                     <h4 style="color: #58b0e0;">Annulla</h4>
                                 </button>
 
@@ -107,7 +110,7 @@
 
                         <input [(ngModel)]="newListDesc" name="listDescription" type="text" class="w3-input">
                         <hr>
-                        <button (click)="closeEdit()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                        <button (click)="closeAdd()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
                                         <h4 style="color: #58b0e0;">Annulla</h4>
                                     </button>
                         <button (click)="addList(newListName,newListDesc)" class="w3-btn">

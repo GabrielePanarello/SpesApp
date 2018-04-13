@@ -18,6 +18,7 @@ export class ListDetailComponent implements OnInit {
   listName: string;
   indexContainer : number;
   products: Product[] = [];
+  loaderCheck = true;
 
   constructor(private productService: ProductService, private listService: ListService, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
@@ -29,29 +30,25 @@ export class ListDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getListLenght();
     this.getProducts();
+
   }
   
-  getListLenght(){
-    this.productService.getItemListById(this.inputId).subscribe(
-      list => this.listService.getListById(list.userId).subscribe(
-        lists => this.nLists = lists.length
-      )
-    );
-  }
-
   getProducts(){
     this.productService.getItemListById(this.inputId).subscribe(
-      list => {
-        console.log(this.inputId);
+      list =>{ 
         this.products = list.product;
         this.userId = list.userId;
         this.listName = list.name;
-        console.log(this.listName);
-      }
+        this.loaderCheck = false;
+        this.listService.getListById(list.userId).subscribe(
+        lists => {
+          this.nLists = lists.length;}
+      )}
     );
+    
   }
+
 
   addProduct(product: Product){
     this.productService.addToProducts(product).subscribe(
