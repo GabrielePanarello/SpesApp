@@ -100,6 +100,10 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("myEditItem").style.display="block";
   }
   
+  cancel(id:string){
+    this.closeEdit(id);
+  }
+
   openAdd(){
     document.getElementById("myAddModal").style.display="block";
   }

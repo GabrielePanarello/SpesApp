@@ -70,6 +70,7 @@ ul {
 }
 
 .dropdown-content {
+    padding-left:10px;
     display: none;
     width: 250px;
     position: absolute;
