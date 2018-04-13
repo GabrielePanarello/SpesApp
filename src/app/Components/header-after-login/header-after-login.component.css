@@ -90,6 +90,11 @@ ul {
     display: block;
 }
 
+.userP{
+    border-radius: 70%;
+    width: 8%;
+}
+
 @media only screen and (width: 768px) {
     .menu {
         margin-left: 0px;

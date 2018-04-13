@@ -23,6 +23,9 @@ import { ComunicatorService } from './services/comunicator.service';
 import { DetailGuardService } from './services/detail-guard.service';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { HeaderAfterLoginComponent } from './components/header-after-login/header-after-login.component';
+import { RecipesComponent } from './Components/recipes/recipes.component';
+import { RecipeService } from './services/recipe.service';
+import { RecipeDetailComponent } from './Components/recipe-detail/recipe-detail.component';
 
 
 
@@ -36,7 +39,9 @@ import { HeaderAfterLoginComponent } from './components/header-after-login/heade
     FooterComponent,
     ListDetailComponent,
     LoaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecipesComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ import { HeaderAfterLoginComponent } from './components/header-after-login/heade
     MainRouterModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService, DetailGuardService],
+  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService, DetailGuardService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

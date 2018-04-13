@@ -1,0 +1,346 @@
+.noRecipes {
+    display: none;
+}
+
+.hasRecipes {
+    display: block;
+}
+
+.subHeader {
+    width: 100%;
+    height: 50px;
+    border-bottom: solid blue;
+}
+
+#titleHeader {
+    position: relative;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    left: 50px;
+}
+
+.recipeContainer {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcomeContainer {
+    padding-bottom: 120px;
+}
+
+#welcome {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+    color: gray;
+}
+
+#subWelcome {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: gray;
+}
+
+#recipeImg {
+    display: block;
+    margin: 0 auto;
+}
+
+#subImg {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.addDiv {
+    position: absolute;
+    bottom: 100px;
+    right: 10px;
+}
+
+#arrow {
+    position: absolute;
+    float: right;
+    bottom: 150px;
+    right: 48px;
+}
+
+#add {
+    cursor: pointer;
+}
+
+
+/* STILE CON RICETTE PRESENTI */
+
+.recipePopulatedContainer {
+    width: 90%;
+    height: 500px;
+    margin: 50px 50px 50px 80px;
+}
+
+.recipeWrapper {
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 200px;
+    grid-gap: 20px;
+}
+
+.recipeTry {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-image: url("../../../assets/homeList-assets/fruit_vegetable.jpg");
+    box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.75);
+}
+
+#headerRecipe {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#titleHeaderRecipe {
+    text-align: center;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 1;
+}
+
+#footerTitleRecipe {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+    background-color: rgba(88, 176, 224, 0.6);
+    bottom: 0;
+}
+
+#titleFooter {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#initials {
+    position: relative;
+    font-size: 65px;
+    text-align: center;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#footerRecipe {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+}
+
+#send,
+#edit,
+#delete {
+    display: inline;
+    padding: 5px 10px 10px 10px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.recipeTry:hover #headerRecipe {
+    visibility: visible;
+}
+
+.recipeTry:hover #footerRecipe {
+    visibility: visible;
+}
+
+.recipeTry:hover #footerTitleRecipe {
+    display: none;
+}
+
+
+/*GRAZIE W3 SCHOOL*/
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 9999;
+    /* Sit on top */
+    padding-top: 20px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow: auto; */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(240, 15, 15);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    width: 100%;
+    height: 15%;
+    background-color: #58b0e0;
+    padding: 2px 16px;
+}
+
+h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    margin-left: 30%;
+    margin-top:0%;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    width: 100%;
+    height: 35%;
+    margin-bottom: 10px;
+}
+
+.w3-input {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #58b0e0;
+}
+
+.w3-input:focus {
+    outline: none;
+}
+
+hr {
+    border-width: 3px;
+    margin-top: 10%;
+}
+
+.w3-btn {
+    background-color: #58b0e0;
+    color: white;
+    width: 46%;
+    height: 6%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    margin-left: 3%;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        margin-left: 0px;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+    .addDiv {
+        position: absolute;
+        bottom: 330px;
+        right: 10px;
+    }
+}
+
+@media only screen and (width: 1024px) {
+    .menu {
+        margin-left: 150px;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal-content {
+        margin-top:100px;
+        width:60%;
+    }
+}

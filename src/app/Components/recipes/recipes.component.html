@@ -1,0 +1,127 @@
+<app-header-after-login [userId]="inputId"></app-header-after-login>
+<app-loader *ngIf="loaderCheck"></app-loader>
+
+<div *ngIf="recipes.length !== 0" class="subHeader">
+    <p id="titleHeader">{{recipes.length}} Ricette</p>
+</div>
+
+<ng-container *ngIf="recipes.length === 0">
+    <div class="noRecipes">
+        <div class="recipeContainer">
+            <div class="welcomeContainer">
+                <p id="welcome">
+                    <b>benvenuto!</b>
+                </p>
+                <p id="subWelcome">
+                    <b>Inizia a creare le tue ricette!</b>
+                </p>
+                <img id="recipeImg" src="../../../assets/home-assets/home_liste.png">
+                <p id="subImg">Crea ora la tua prima
+                    <br>Ricetta!</p>
+            </div>
+
+            <img id="arrow" src="../../../assets/homeList-assets/arrow_big.png">
+
+            <div class="addDiv">
+                <img id="add" src="../../../assets/homeList-assets/aggiungi.png">
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="hasRecipes">
+    <div class="recipePopulatedContainer">
+        <div class="recipeWrapper">
+            <ng-container *ngFor="let recipe of recipes">
+                <div class="recipeTry">
+                    <div id="headerRecipe">
+                        <p id="titleHeaderRecipe">{{recipe.name}}</p>
+                    </div>
+                    <div id="footerTitleRecipe">
+                        <p id="titleFooter">{{recipe.name}}</p>
+                    </div>
+                    <div id="footerRecipe">
+                        <img id="edit" src="../../../assets/homeList-assets/modify.png" alt="" (click)="openEdit(recipe.id)">
+
+                        <img (click)="goToDetail(recipe.id)" id="send" src="../../../assets/homeList-assets/send.png" alt="">
+                        <img (click)="openDelete(recipe.id)" id="delete" src="../../../assets/homeList-assets/delete.png" alt="">
+                    </div>
+                </div>
+                <div id="myEditModal-{{recipe.id}}" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span (click)="closeEdit(recipe.id)" class="close">&times;</span>
+                            <h2 style="margin-top: 3%"> Modifica Ricetta </h2>
+                        </div>
+                        <div class="modal-body">
+                            <form class="w3-container">
+
+                                <input [(ngModel)]="recipe.name" name="recipeName" type="text" class="w3-input" value="{{recipe.name}}">
+
+                                <input [(ngModel)]="recipe.description" name="recipeDescription" type="text" class="w3-input" value="{{recipe.description}}">
+                                <hr>
+                                <button (click)="closeEdit(recipe.id)" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                            <h4 style="color: #58b0e0;">Annulla</h4>
+                                        </button>
+                                <button (click)="editRecipe(recipe)" class="w3-btn">
+                                            <h4>Conferma</h4>
+                                        </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="myDeleteModal-{{recipe.id}}" class="modal">
+                    <div class="modal-content" style="height:45%">
+                        <div class="modal-header">
+                            <span (click)="closeDelete(recipe.id)" class="close">&times;</span>
+                            <h2> Elimina Ricetta </h2>
+                        </div>
+                        <div class="modal-body">
+                            <form class="w3-container" style="margin-top:15%">
+                                <h4> Vuoi eliminare definitivamente la ricetta {{recipe.name}} ? </h4>
+                                <hr>
+                                <button (click)="closeDelete(recipe.id)" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                    <h4 style="color: #58b0e0;">Annulla</h4>
+                                </button>
+
+                                <button (click)="deleteRecipe(recipe)" class="w3-btn">
+                                    <h4>Conferma</h4>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="addDiv">
+            <img (click)="openAdd()" id="add" src="../../../assets/homeList-assets/aggiungi.png">
+        </div>
+
+        <div id="myAddModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span (click)="closeAdd()" class="close">&times;</span>
+                    <h2> Aggiungi Ricettaa </h2>
+                </div>
+                <div class="modal-body">
+                    <form class="w3-container">
+                        <input [(ngModel)]="newRecipeName" name="recipeName" type="text" class="w3-input" placeholder="Nome della Ricetta">
+
+                        <input [(ngModel)]="newRecipeDesc" name="recipeDescription" type="text" class="w3-input" placeholder="Descrizione">
+                        <hr>
+                        <button (click)="closeAdd()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
+                                        <h4 style="color: #58b0e0;">Annulla</h4>
+                                    </button>
+                        <button (click)="addRecipe(newRecipeName,newRecipeDesc)"  (click)="closeAdd()" class="w3-btn">
+                                        <h4>Conferma</h4>
+                                    </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -5,6 +5,7 @@ import { List } from '../beans/list';
 import { HttpService } from './http.service';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Product } from '../beans/product';
+import { Recipe } from '../Beans/recipe';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,6 +22,14 @@ export class ProductService {
     .pipe(
       map(list => list[id === 1 ? id : id-1]),
       catchError(this.httpService.handleError('getList',null))
+    );
+  }
+
+  getItemRecipeById(id: number): Observable<List>{
+    return this.http.get<List>(this.httpService.getUrl()+"recipes",httpOptions)
+    .pipe(
+      map(list => list[id === 1 ? id : id-1]),
+      catchError(this.httpService.handleError('getRecipe',null))
     );
   }
 

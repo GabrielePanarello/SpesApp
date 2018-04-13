@@ -1,8 +1,8 @@
 <app-header-after-login [userId]="userId"></app-header-after-login>
 <app-loader *ngIf="loaderCheck"></app-loader>
 
-<div *ngIf="nLists !== undefined" class="subHeader">
-    <p (click)="goBack()" id="titleHeader">{{nLists}} Liste > {{listName}}</p>
+<div *ngIf="nRecipes !== undefined" class="subHeader">
+    <p (click)="goBack()" id="titleHeader">{{nRecipes}} Ricette > {{recipeName}}</p>
 </div>
 
 <div [sortablejs]="products">
@@ -34,7 +34,7 @@
 
             <div id="{{product.id}}" class="wrapperMenu">
                 <img (click)="cancel(product.id)" src="../../../assets/list-detail-assets/drag&drop.png" alt="">
-                <img (click)="openEditItem(product.id)" src="../../../assets/homeList-assets/modify.png" alt="">
+                <img (click)="editProduct(product)" src="../../../assets/homeList-assets/modify.png" alt="">
                 <img (click)="deleteProduct(product)" src="../../../assets/homeList-assets/delete.png" alt="">
                 <img (click)="pinProduct(product.id)" src="../../../assets/list-detail-assets/cancel white.png" alt="">
             </div>
@@ -60,42 +60,13 @@
                     <input [(ngModel)]="newProductQuantity" name="productQuantity" type="text" class="w3-input" placeholder="Quantità">
                     <hr>
                     <button (click)="closeAdd()" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
-                        <h4 style="color: #58b0e0;">Annulla</h4>
-                    </button>
+                                    <h4 style="color: #58b0e0;">Annulla</h4>
+                                </button>
                     <button (click)="addProduct()" class="w3-btn">
-                        <h4>Conferma</h4>
-                    </button>
+                                    <h4>Conferma</h4>
+                                </button>
                 </form>
             </div>
         </div>
     </div>
-
-    <ng-container *ngFor="let product of products">
-        <div id="myEditItem-{{product.id}}" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span (click)="closeEditItem(product.id)" class="close">&times;</span>
-                    <h2 style="margin-top: 3%"> Modifica Prodotto </h2>
-                </div>
-                <div class="modal-body">
-                    <form class="w3-container">
-
-                        <input [(ngModel)]="product.name" name="productName" type="text" class="w3-input" value="{{product.name}}">
-
-                        <input [(ngModel)]="product.dose" name="productDose" type="text" class="w3-input" value="{{product.dose}}">
-
-                        <input [(ngModel)]="product.quantity" name="productQuantity" type="text" class="w3-input" value="{{product.quantity}}">
-
-                        <hr>
-                        <button (click)="closeEditItem(product.id)" class="w3-btn" style="background-color:white; border:1px solid #58b0e0;">
-                                            <h4 style="color: #58b0e0;">Annulla</h4>
-                                        </button>
-                        <button (click)="editProduct(product)" class="w3-btn">
-                                            <h4>Conferma</h4>
-                                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </ng-container>
 </div>

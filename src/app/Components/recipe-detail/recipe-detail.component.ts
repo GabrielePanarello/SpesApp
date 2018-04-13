@@ -1,33 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ListService } from '../../services/list.service';
 import { Product } from '../../beans/product';
-import { List } from '../../beans/list';
+import { Recipe } from '../../beans/recipe';
 import { ProductService } from '../../services/product.service';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
-  selector: 'app-list-detail',
-  templateUrl: './list-detail.component.html',
-  styleUrls: ['./list-detail.component.css']
+  selector: 'app-recipe-detail',
+  templateUrl: './recipe-detail.component.html',
+  styleUrls: ['./recipe-detail.component.css']
 })
-export class ListDetailComponent implements OnInit {
+export class RecipeDetailComponent implements OnInit {
 
   inputId : number;
-  nLists: number ;
+  nRecipes: number ;
   userId: number;
-  listName: string;
+  recipeName: string;
   indexContainer : number;
   products: Product[] = [];
-  newProduct: Product;
   loaderCheck = true;
 
-  newProductName = "";
-  newProductDose= "";
-  newProductQuantity= "";
-
-  lastId=3;
-
-  constructor(private productService: ProductService, private listService: ListService, private activatedRoute: ActivatedRoute, private router: Router) { 
+  constructor(private productService: ProductService, private recipeService: RecipeService, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.inputId = params['id'];
@@ -38,28 +31,27 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+
   }
   
   getProducts(){
-    this.productService.getItemListById(this.inputId).subscribe(
-      list =>{
-        list.id 
-        this.products = list.product;
-        this.userId = list.userId;
-        this.listName = list.name;
+    this.productService.getItemRecipeById(this.inputId).subscribe(
+      recipe =>{ 
+        this.products = recipe.product;
+        this.userId = recipe.userId;
+        this.recipeName = recipe.name;
         this.loaderCheck = false;
-        this.listService.getListById(list.userId).subscribe(
-        lists => {
-          this.nLists = lists.length;}
+        this.recipeService.getRecipeById(recipe.userId).subscribe(
+          recipes => {
+          this.nRecipes = recipes.length;}
       )}
     );
     
   }
 
-  addProduct(newProductName:string,newProductDose:string,newProductQuantity:string){
-    this.lastId++;
-    this.newProduct = new Product(this.lastId,"-",newProductName,newProductDose,newProductQuantity,false);
-    this.productService.addToProducts(this.newProduct).subscribe(
+
+  addProduct(product: Product){
+    this.productService.addToProducts(product).subscribe(
       responseProduct => {
         this.products.push(responseProduct);
       }
@@ -69,7 +61,6 @@ export class ListDetailComponent implements OnInit {
   editProduct(product:Product){
     this.productService.editProduct(product).subscribe(
       () => this.products[this.products.findIndex((obj => obj.id == product.id))] = product);
-      this.closeEditItem(product.id);
   }
 
   deleteProduct(product: Product){
@@ -79,7 +70,7 @@ export class ListDetailComponent implements OnInit {
   }
 
   goBack(){
-    this.router.navigate(["user/"+this.userId]);
+    this.router.navigate(["recipe/"+this.userId]);
   }
 
   showEdit(id:string){
@@ -96,20 +87,11 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("wrapper-"+id).style.position="relative";
   }
 
-  closeEditItem(id: string | number){
-    document.getElementById("myEditItem-"+id).style.display="none";
-  }
-
-
   pinProduct(id:string){
     this.closeEdit(id);
     document.getElementById("name-"+id).style.textDecoration ="line-through"
   }
 
-  openEditItem(id:String){
-    document.getElementById("myEditItem-"+id).style.display="block";
-  }
-  
   cancel(id:string){
     this.closeEdit(id);
   }
@@ -121,5 +103,4 @@ export class ListDetailComponent implements OnInit {
   closeAdd(){
     document.getElementById("myAddModal").style.display="none";
   }
-
 }
