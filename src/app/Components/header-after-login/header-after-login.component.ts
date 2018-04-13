@@ -19,6 +19,10 @@ export class HeaderAfterLoginComponent implements OnInit {
     this.router.navigate(["user/"+this.userId]);
   }
 
+  goToRecipes(){
+    this.router.navigate(["recipe/"+this.userId]);
+  }
+
   goToProfile(){
     this.router.navigate(["profile"]);
   }

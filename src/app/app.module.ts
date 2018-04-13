@@ -23,6 +23,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { ComunicatorService } from './services/comunicator.service';
 import { DetailGuardService } from './services/detail-guard.service';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { RecipesComponent } from './Components/recipes/recipes.component';
+import { RecipeService } from './services/recipe.service';
 
 
 
@@ -36,7 +38,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
     FooterComponent,
     ListDetailComponent,
     LoaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     MainRouterModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService, DetailGuardService],
+  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService, DetailGuardService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
