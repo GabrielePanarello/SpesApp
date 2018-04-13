@@ -18,7 +18,14 @@ export class ListDetailComponent implements OnInit {
   listName: string;
   indexContainer : number;
   products: Product[] = [];
+  newProduct: Product;
   loaderCheck = true;
+
+  newProductName = "";
+  newProductDose= "";
+  newProductQuantity= "";
+
+  lastId=3;
 
   constructor(private productService: ProductService, private listService: ListService, private activatedRoute: ActivatedRoute, private router: Router) { 
     this.activatedRoute.params.subscribe(params => {
@@ -31,12 +38,12 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-
   }
   
   getProducts(){
     this.productService.getItemListById(this.inputId).subscribe(
-      list =>{ 
+      list =>{
+        list.id 
         this.products = list.product;
         this.userId = list.userId;
         this.listName = list.name;
@@ -49,9 +56,10 @@ export class ListDetailComponent implements OnInit {
     
   }
 
-
-  addProduct(product: Product){
-    this.productService.addToProducts(product).subscribe(
+  addProduct(newProductName:string,newProductDose:string,newProductQuantity:string){
+    this.lastId++;
+    this.newProduct = new Product(this.lastId,"-",newProductName,newProductDose,newProductQuantity,false);
+    this.productService.addToProducts(this.newProduct).subscribe(
       responseProduct => {
         this.products.push(responseProduct);
       }
