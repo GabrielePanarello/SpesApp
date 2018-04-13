@@ -87,6 +87,10 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("name-"+id).style.textDecoration ="line-through"
   }
 
+  cancel(id:string){
+    this.closeEdit(id);
+  }
+
   openAdd(){
     document.getElementById("myAddModal").style.display="block";
   }
