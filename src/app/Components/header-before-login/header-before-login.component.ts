@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IButton } from 'selenium-webdriver';
 import { HttpService } from '../../services/http.service';
 import { User } from '../../beans/user';
 import { Router } from '@angular/router';
@@ -57,7 +56,6 @@ export class HeaderBeforeLoginComponent implements OnInit {
   }
   closeRegister() {
     document.getElementById("myModalRegister").style.display = "none";
-    //document.getElementById("menu-item").style.padding="0px";
     document.getElementById("mail").style.color = "gray";
     document.getElementById("messaggio").style.color = "gray";
   }

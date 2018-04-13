@@ -56,7 +56,7 @@
 
 .addDiv {
     position: absolute;
-    bottom: 20px;
+    bottom: 100px;
     right: 10px;
 }
 
@@ -212,7 +212,6 @@
     padding: 0;
     border: 1px solid #888;
     width: 30%;
-    height: 65%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -274,12 +273,14 @@ h2 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #fff;
     margin-left: 30%;
+    margin-top:0%;
 }
 
 .modal-body {
     padding: 2px 16px;
     width: 100%;
     height: 35%;
+    margin-bottom: 10px;
 }
 
 .w3-input {
@@ -321,6 +322,11 @@ button {
     .menu-item {
         padding: 10px;
     }
+    .addDiv {
+        position: absolute;
+        bottom: 330px;
+        right: 10px;
+    }
 }
 
 @media only screen and (width: 1024px) {
@@ -329,5 +335,12 @@ button {
     }
     .menu-item {
         padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal-content {
+        margin-top:100px;
+        width:60%;
     }
 }

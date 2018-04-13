@@ -22,6 +22,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ComunicatorService } from './services/comunicator.service';
 import { DetailGuardService } from './services/detail-guard.service';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 
 
@@ -34,7 +35,8 @@ import { DetailGuardService } from './services/detail-guard.service';
     HomeListComponent,
     FooterComponent,
     ListDetailComponent,
-    LoaderComponent 
+    LoaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
