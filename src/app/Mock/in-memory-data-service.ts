@@ -24,7 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
         const recipes = [
             {
-                id: 1, name: "Paste alla pasta", img: "-", userId: 1, description:"spesa del sabato", product : [
+                id: 1, name: "Pasta alla paste", img: "-", userId: 1, description:"spesa del sabato", product : [
                       {id: 1, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false },
                       {id: 2, img: "-", name: "Paste", dose: "100gr", quantity: "2", took: false }
                     ]
@@ -36,7 +36,7 @@ export class InMemoryDataService implements InMemoryDbService {
                  ] 
              },
              {
-                 id: 3, name: "Torta", img: "-", userId: 2, description:"spesa di pasquetta", product: [
+                 id: 2, name: "Torta", img: "-", userId: 2, description:"spesa di pasquetta", product: [
                      { id: 2, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
                  ] 
              }

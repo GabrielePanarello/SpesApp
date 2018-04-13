@@ -70,7 +70,7 @@ export class RecipesComponent implements OnInit {
   }
  
   goToDetail(id:number){
-    this.router.navigate(["recipe/"+id]);
+    this.router.navigate(["recipeDetail/"+id]);
   }
 
   openAdd(){

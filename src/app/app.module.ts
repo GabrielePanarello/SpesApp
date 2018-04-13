@@ -25,6 +25,7 @@ import { DetailGuardService } from './services/detail-guard.service';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { RecipesComponent } from './Components/recipes/recipes.component';
 import { RecipeService } from './services/recipe.service';
+import { RecipeDetailComponent } from './Components/recipe-detail/recipe-detail.component';
 
 
 
@@ -39,7 +40,8 @@ import { RecipeService } from './services/recipe.service';
     ListDetailComponent,
     LoaderComponent,
     ProfileComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
