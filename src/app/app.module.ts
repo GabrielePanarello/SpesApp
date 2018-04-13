@@ -21,6 +21,7 @@ import { ProductService } from './services/product.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ComunicatorService } from './services/comunicator.service';
+import { DetailGuardService } from './services/detail-guard.service';
 
 
 
@@ -43,7 +44,7 @@ import { ComunicatorService } from './services/comunicator.service';
     MainRouterModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService],
+  providers: [HttpService, LoginService, ListService, ProductService, AuthGuardService, ComunicatorService, DetailGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

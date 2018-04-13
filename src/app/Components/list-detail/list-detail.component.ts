@@ -58,6 +58,11 @@ export class ListDetailComponent implements OnInit {
     );
   }
 
+  editProduct(product:Product){
+    this.productService.editProduct(product).subscribe(
+      () => this.products[this.products.findIndex((obj => obj.id == product.id))] = product);
+  }
+
   deleteProduct(product: Product){
     this.productService.deleteProduct(product).subscribe(
       response => this.products = this.products.filter(p => p !== product)

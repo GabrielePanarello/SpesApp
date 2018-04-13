@@ -29,14 +29,4 @@ export class LoginService {
     );
   }
 
-  checkLoggedUser(id:number | string): boolean{
-    var check = false;
-    this.http.get<User>(this.httpService.getUrl()+"users",httpOptions)
-    .pipe(
-      map(userResponse => id === userResponse.id ? check=true: check=false)  
-    )
-    console.log(check);
-    return check;
-  }
-
 }
