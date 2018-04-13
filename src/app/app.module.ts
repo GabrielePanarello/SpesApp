@@ -19,6 +19,7 @@ import { ListDetailComponent } from './components/list-detail/list-detail.compon
 import { SortablejsModule } from 'angular-sortablejs';
 import { ProductService } from './services/product.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 
 
@@ -31,7 +32,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     HomeListComponent,
     FooterComponent,
     ListDetailComponent,
-    LoaderComponent 
+    LoaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
