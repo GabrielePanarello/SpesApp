@@ -219,7 +219,7 @@ h2 {
 
 .img-login {
     position: absolute;
-    width: 550px;
+    width: 650px;
     height: 100%;
     overflow: hidden;
 }
@@ -260,5 +260,25 @@ button {
     }
     .menu-item {
         padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .img-login {
+        position: absolute;
+        width: 250px;
+        height: 100%;
+        overflow: hidden;
+        display : none;
+    }
+    .modal-header {
+        width: 100%;
+    }
+
+    .modal-body{
+        width: 100%;
+    }
+    .modal-footer{
+        width: 100%;
     }
 }
