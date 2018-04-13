@@ -95,11 +95,20 @@ export class ListDetailComponent implements OnInit {
     document.getElementById("wrapper-"+id).style.position="relative";
   }
 
+  closeEditItem(id: string | number){
+    document.getElementById("myEditItem-"+id).style.display="none";
+  }
+
+
   pinProduct(id:string){
     this.closeEdit(id);
     document.getElementById("name-"+id).style.textDecoration ="line-through"
   }
 
+  openEditItem(id:String){
+    document.getElementById("myEditItem-"+id).style.display="block";
+  }
+  
   cancel(id:string){
     this.closeEdit(id);
   }
@@ -111,4 +120,5 @@ export class ListDetailComponent implements OnInit {
   closeAdd(){
     document.getElementById("myAddModal").style.display="none";
   }
+
 }
