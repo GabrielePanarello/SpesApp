@@ -322,6 +322,11 @@ button {
     .menu-item {
         padding: 10px;
     }
+    .addDiv {
+        position: absolute;
+        bottom: 330px;
+        right: 10px;
+    }
 }
 
 @media only screen and (width: 1024px) {
