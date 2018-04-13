@@ -37,7 +37,7 @@ export class InMemoryDataService implements InMemoryDbService {
              },
              {
                  id: 2, name: "Torta", img: "-", userId: 2, description:"spesa di pasquetta", product: [
-                     { id: 2, img: "-", name: "Pasta", dose: "100gr", quantity: "2", took: false }
+                     { id: 2, img: "-", name: "Farina", dose: "100gr", quantity: "2", took: false }
                  ] 
              }
         ]
